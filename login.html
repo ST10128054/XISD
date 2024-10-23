@@ -126,16 +126,41 @@ button:hover {
     </style>
 </head>
     <body>
+      <script>
+        function validateAndSubmit(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const formElements = document.querySelectorAll('input, password, text, select');
+            let allFilled = true;
+
+            // Check if all fields are filled
+            formElements.forEach(element => {
+                if (!element.value) {
+                    allFilled = false;
+                    element.classList.add('error'); // Optional: add a class to highlight empty fields
+                } else {
+                    element.classList.remove('error'); // Remove error class if filled
+                }
+            });
+
+            if (allFilled) {
+                // Navigate to another page if all fields are filled
+                window.location.href = 'index.html'; // Change to your desired URL
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+    </script>
         <div class="wrapper">
-            <form action="#">
+            <form action="#" onsubmit="validateAndSubmit(event)">
               <h2>Login</h2>
                 <div class="input-field">
                 <input type="text" required>
-                <label>Enter your email</label>
+                <label>Email</label>
               </div>
               <div class="input-field">
                 <input type="password" required>
-                <label>Enter your password</label>
+                <label>Password</label>
               </div>
               <div class="forget">
                 <label for="remember">
@@ -146,7 +171,7 @@ button:hover {
               </div>
               <button type="submit">Log In</button>
               <div class="register">
-                <p>Don't have an account? <a href="#">Register</a></p>
+                <p>Don't have an account? <a href="register.html">Register</a></p>
               </div>
             </form>
           </div>
