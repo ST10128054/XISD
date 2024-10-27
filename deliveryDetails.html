@@ -24,7 +24,7 @@
           content: "";
           position: absolute;
           width: 100%;
-          height: 900px;
+          height: 100%;
           background: url("img/loginBG.jpg");
           background-position: center;
           background-size: cover;
@@ -201,7 +201,7 @@
         function validateAndSubmit(event) {
             event.preventDefault(); // Prevent form submission
 
-            const formElements = document.querySelectorAll('input, password, text, select');
+            const formElements = document.querySelectorAll('input, text, select');
             let allFilled = true;
 
             // Check if all fields are filled
@@ -224,44 +224,25 @@
     </script>
       <div class="wrapper">
         <h2 style="color: #000;">Delivery Details</h2>
-        <form action="#" class="form">
-          <div class="input-box">
-            <label style="color: #000;">First Name</label>
-            <input type="text" required />
-          </div>
-          <div class="input-box">
-            <label>Last Name</label>
-            <input type="text" required />
-          </div>
-          <div class="column">
-            <div class="input-box">
-              <label>Email Address</label>
-              <input type="text" required />
-            </div>
-            <div class="input-box">
-              <label>Phone Number</label>
-              <input type="text" required />
-            </div>
-          </div>
-          
+        <form action="#" class="form" onsubmit="validateAndSubmit(event)">
           <div class="input-box address">
             <label>Address</label>
-            <input type="text" placeholder="Street address" required />
+            <input type="text" placeholder="Street address" id="streetAddress" required />
             <div class="column">
               <div class="select-box">
-                <select>
+                <select id="country">
                   <option hidden>Country</option>
-                  <option>Botswana</option>
-                  <option>Namibia</option>
-                  <option>South Africa</option>
-                  <option>Zimbabwe</option>
+                  <option value="botswana">Botswana</option>
+                  <option value="namibia">Namibia</option>
+                  <option value="southAfrica">South Africa</option>
+                  <option value="zimbabwe">Zimbabwe</option>
                 </select>
               </div>
-              <input type="text" placeholder="City" required />
+              <input type="text" placeholder="City" id="city" required />
             </div>
             <div class="column">
-              <input type="text" placeholder="Suburb/Region" required />
-              <input type="text" placeholder="Postal code" required />
+              <input type="text" placeholder="Suburb/Region" id="suburb" required />
+              <input type="text" placeholder="Postal code" id="postalCode" required />
             </div>
           </div>
           <div class="button">
