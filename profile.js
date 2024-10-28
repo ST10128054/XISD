@@ -28,6 +28,7 @@ const firebaseConfig = {
 
     onAuthStateChanged(auth, (user)=>{
         const loggedInUserId = localStorage.getItem('loggedInUserId');
+        
         if(loggedInUserId){
             const docRef = doc(db, "users", loggedInUserId);
             getDoc(docRef).then((docSnap)=>{
@@ -58,4 +59,29 @@ const firebaseConfig = {
         }).catch((error)=>{
             console.error('Error Signing Out: ', error);
         })
-    })
+    });
+
+    const profileIcon = document.getElementById('profileIcon');
+    profileIcon.addEventListener('click', ()=>{
+        const loggedInUserId = localStorage.getItem('loggedInUserId');
+        if(!loggedInUserId){
+            window.location.href = 'login.html';
+        }else{
+            window.location.href = 'profile.html';
+        }
+    });
+
+    //const adminButton = document.getElementById('adminBtn');
+    //adminButton.addEventListener('click', ()=>{
+    //    let adminUid = 'D3VhNk76AZR5BNeZ9bAQIuwC6pF3';
+    //    let loggedInAdminId = localStorage.getItem('loggedInUserId');
+    //    if(loggedInAdminId.toString() === adminUid.toString() ){
+    //        window.location.href = 'adminDash.html';
+    //    }else{
+    //        window.location.href = 'index.html';
+    //    }
+    //});
+   
+    
+        
+    

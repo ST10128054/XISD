@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech2etc Ecommerce Tutorial</title>
+    <title>Product</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="profileCheck.js"></script>
 </head>
 
 <body>
@@ -20,11 +21,10 @@
             <ul id="navbar">
                 <li><a href="index.html">Home</a></li>
                 <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
-                <li id="lg-bag"><a href="login.html"><i class="far fa-regular fa-user"></i></a></li>
+                <li id="lg-bag"><a id="profileIcon" ><i class="far fa-regular fa-user"></i></a></li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
@@ -87,13 +87,7 @@
                 <div class="des">
                     <span>sonia</span>
                     <h5>Green Dress</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    
                     <h4>R120</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
@@ -103,13 +97,7 @@
                 <div class="des">
                     <span>sonia</span>
                     <h5>Green Outfit</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    
                     <h4>R150</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
@@ -119,13 +107,7 @@
                 <div class="des">
                     <span>Sonia</span>
                     <h5>Green Jacket</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    
                     <h4>R80</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
@@ -135,13 +117,7 @@
                 <div class="des">
                     <span>sonia</span>
                     <h5>Green Tracksuite</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+                    
                     <h4>R170</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
@@ -150,16 +126,7 @@
         </div>
     </section>
 
-    <section id="newsletter" class="section-p1 section-m1">
-        <div class="newstext">
-            <h4>Sign Up For Newsletters</h4>
-            <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
-        </div>
-        <div class="form">
-            <input type="text" placeholder="Your email address">
-            <button class="normal">Sign Up</button>
-        </div>
-    </section>
+    
 
     <footer class="section-p1">
         <div class="col">
@@ -209,9 +176,7 @@
             <img src="img/pay/pay.png" alt="">
         </div>
 
-        <div class="copyright">
-            <p>© 2021, Tech2 etc - HTML CSS Ecommerce Prototype</p>
-        </div>
+        
     </footer>
 
     <script>

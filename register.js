@@ -41,31 +41,50 @@ register.addEventListener('click', (event)=> {
     const password = document.getElementById('rPassword').value;
     const firstName = document.getElementById('fName').value;
     const lastName = document.getElementById('lName').value;
+    const streetAddress = document.getElementById('streetAddress').value;
+    const country = document.getElementById('country').value;
+    const city = document.getElementById('city').value;
+    const suburb = document.getElementById('suburb').value;
+    const postalCode = document.getElementById('postalCode').value;
     
     const auth = getAuth();
     const db = getFirestore();
 
-    createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-        const user = userCredential.user;
-        const userData = {
-            email: email,
-            firstName: firstName,
-            lastName: lastName
-        };
-        showMessage('Account Created Successfully', 'signUpMessage');
-        const docRef = doc(db, "users", user.uid);
-        setDoc(docRef, userData).then(()=>{
-            window.location.href = 'login.html';
+    let regPassword = document.getElementById('rPassword').value;
+    let confPassword = document.getElementById('cPassword').value;
+
+    if(regPassword.toString() === confPassword.toString()){
+        createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+            const user = userCredential.user;
+            const userData = {
+                email: email,
+                firstName: firstName,
+                lastName: lastName,
+                streetAddress: streetAddress,
+                country: country,
+                city: city,
+                suburb: suburb,
+                postalCode: postalCode
+            };
+            showMessage('Account Created Successfully', 'signUpMessage');
+            const docRef = doc(db, "users", user.uid);
+            setDoc(docRef, userData).then(()=>{
+                window.location.href = 'login.html';
+            }).catch((error)=>{
+                console.error("Error writing dcoument", error);
+            });
         }).catch((error)=>{
-            console.error("Error writing dcoument", error);
-        });
-    }).catch((error)=>{
-        const errorCode = error.code;
-        if(errorCode == 'auth/email-already-in-use}'){
-            showMessage('Email Address Already Exists !!!', 'signUpMessage');
-        }else{
-            showMessage('Unable to create user', 'signUpMessage');
-        }
-    })
+            const errorCode = error.code;
+            if(errorCode == 'auth/email-already-in-use}'){
+                showMessage('Email Address Already Exists !!!', 'signUpMessage');
+            }else{
+                showMessage('Unable to create user', 'signUpMessage');
+            }
+        })
+    }else{
+        showMessage('Passwords do not match', 'signUpMessage');
+    }
+
+    
 });
 

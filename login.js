@@ -1,8 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-import{getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import{getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
+import{getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import{getFirestore, setDoc, getDoc, doc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,6 +24,9 @@ measurementId: "G-9NGP2CY0XM"
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+const auth = getAuth();
+    const db = getFirestore();
 
 function showMessage(message, divId){
     var messageDiv = document.getElementById(divId);
@@ -44,7 +49,15 @@ login.addEventListener('click', (event)=> {
         showMessage('Login is Succesful', 'signInMessage');
         const user = userCredential.user;
         localStorage.setItem('loggedInUserId', user.uid);
-        window.location.href = 'deliveryDetails.html';
+        //window.location.href = 'deliveryDetails.html';
+
+        let adminUid = 'D3VhNk76AZR5BNeZ9bAQIuwC6pF3';
+        let loggedInAdminId = localStorage.getItem('loggedInUserId');
+        if(loggedInAdminId.toString() === adminUid.toString() ){
+            window.location.href = 'adminDash.html';
+        }else{
+            window.location.href = 'index.html';
+        }
     }).catch((error)=>{
         const errorCode = error.code;
         if(errorCode == 'auth/invalid-credential'){
@@ -54,3 +67,8 @@ login.addEventListener('click', (event)=> {
         }
     })
 });
+
+const adminButton = document.getElementById('adminBtn');
+    adminButton.addEventListener('click', ()=>{
+        
+    });

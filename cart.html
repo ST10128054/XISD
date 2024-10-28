@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Cart</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="profileCheck.js"></script>
+    <script type="module" src="checkoutCheck.js"></script>
 </head>
 
 <body>
@@ -20,11 +20,10 @@
             <ul id="navbar">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li id="lg-bag"><a href="#" class="active"><i class="far fa-shopping-bag"></i></a></li>
-                <li id="lg-bag"><a href="login.html"><i class="far fa-regular fa-user"></i></a></li>
+                <li id="lg-bag"><a id="profileIcon" ><i class="far fa-regular fa-user"></i></a></li>
                 <a id="close" href="#"><i class="far fa-times"></i></a>
             </ul>
         </div>
@@ -38,7 +37,7 @@
     <section id="page-header" class="about-header">
 
         <h2>#cart</h2>
-        <p>Add your coupon code & SAVE upto 70%!</p>
+        
 
     </section>
 
@@ -85,13 +84,7 @@
     </section>
 
     <section id="cart-add" class="section-p1">
-        <div id="cuopon">
-            <h3>Apply Coupon</h3>
-            <div>
-                <input type="text" name="" id="" placeholder="Enter Your Coupon">
-                <button class="normal">Apply</button>
-            </div>
-        </div>
+        
 
         <div id="subtotal">
             <h3>Cart Totals</h3>
@@ -109,9 +102,8 @@
                     <td><strong>R 390</strong></td>
                 </tr>
             </table>
-            <a href="login.html">
-                <button class="normal">Proceed to checkout</button>
-            </a>
+                <button id="checkoutBtn" class="normal">Proceed to checkout</button>
+            
             
         </div>
     </section>
@@ -162,9 +154,6 @@
             <img src="img/pay/pay.png" alt="">
         </div>
 
-        <div class="copyright">
-            <p>© 2021, Tech2 etc - HTML CSS Ecommerce Prototype</p>
-        </div>
     </footer>
 
 

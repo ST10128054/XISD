@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Delivery Details</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
         * {
@@ -197,34 +197,12 @@
     </style>
 </head>
     <body>
-      <script>
-        function validateAndSubmit(event) {
-            event.preventDefault(); // Prevent form submission
-
-            const formElements = document.querySelectorAll('input, text, select');
-            let allFilled = true;
-
-            // Check if all fields are filled
-            formElements.forEach(element => {
-                if (!element.value) {
-                    allFilled = false;
-                    element.classList.add('error'); // Optional: add a class to highlight empty fields
-                } else {
-                    element.classList.remove('error'); // Remove error class if filled
-                }
-            });
-
-            if (allFilled) {
-                // Navigate to another page if all fields are filled
-                window.location.href = 'payment.html'; // Change to your desired URL
-            } else {
-                alert('Please fill in all fields.');
-            }
-        }
-    </script>
+      
       <div class="wrapper">
         <h2 style="color: #000;">Delivery Details</h2>
         <form action="#" class="form" onsubmit="validateAndSubmit(event)">
+
+          
           <div class="input-box address">
             <label>Address</label>
             <input type="text" placeholder="Street address" id="streetAddress" required />
@@ -247,6 +225,9 @@
           </div>
           <div class="button">
             <button>Submit</button>
+          </div>
+          <div class="register">
+            <p style="color: #000;">Or continue without address. <a href="index.html">Continue</a></p>
           </div>
         </form>
     </div>
