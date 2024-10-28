@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-import{getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import{getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import{getFirestore, getDoc, doc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -31,8 +31,31 @@ const firebaseConfig = {
         if(loggedInUserId){
             const docRef = doc(db, "users", loggedInUserId);
             getDoc(docRef).then((docSnap)=>{
+                if(docSnap.exists()){
+                    const userData = docSnap.data();
+                    document.getElementById('loggedUserEmail').innerText = userData.email;
+                    document.getElementById('loggedUserFName').innerText = userData.firstName;
+                    document.getElementById('loggedUserLName').innerText = userData.lastName;
+                }else{
+                    console.log("No document found matching ID");
+                }
                 
+            }).catch((error)=>{
+                console.log("Error getting document");
             })
+        }else{
+            console.log("User ID not found inn local storage");
         }
-        getDoc(docRef)
+        
+    });
+
+    const logoutButton = document.getElementById('logoutBtn');
+    
+    logoutButton.addEventListener('click', ()=>{
+        localStorage.removeItem('loggedInUserId');
+        signOut(auth).then(()=>{
+            window.location.href = 'profile.html';
+        }).catch((error)=>{
+            console.error('Error Signing Out: ', error);
+        })
     })
