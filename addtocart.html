@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="addtocart.css">
+        <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section id="header">
+            <a href="index.html"><img src="img/Sonia/Sonia.jpeg" class="logo" alt="" width="50px" height="50px"></a>
+    
+            <div>
+                <ul id="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="addtocart.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a href="addtocart.html"><i class="far fa-shopping-bag"></i></a></li>
+                    <li id="lg-bag"><a id="profileIcon" ><i class="far fa-regular fa-user"></i></a></li>
+                    <a href="#" id="close"><i class="far fa-times"></i></a>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </section>
+        <div class="header">
+            <p class="logo"></p>
+            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+        </div>
+        <div class="container">
+            <div id="root"><div class="box">
+                <div class="img-box">
+                    <img class="images" src="img/Sonia/armygreen_dress2.jpeg">
+                </div>
+            <div class="bottom">
+            <p>Army Green Dress</p>
+            <h2>R 120.00</h2><button onclick="addtocart(0)">Add to cart</button></div>
+            </div><div class="box">
+                <div class="img-box">
+                    <img class="images" src="img/Sonia/black_dress.jpeg">
+                </div>
+            <div class="bottom">
+            <p>Black Dress</p>
+            <h2>R 60.00</h2><button onclick="addtocart(1)">Add to cart</button></div>
+            </div><div class="box">
+                <div class="img-box">
+                    <img class="images" src="img/Sonia/black_dress.jpeg">
+                </div>
+            <div class="bottom">
+            <p>Black Dress</p>
+            <h2>R 230.00</h2><button onclick="addtocart(2)">Add to cart</button></div>
+            </div><div class="box">
+                <div class="img-box">
+                    <img class="images" src="img/Sonia/Black_fit.jpeg">
+                </div>
+            <div class="bottom">
+            <p>Black Outfit</p>
+            <h2>R 100.00</h2><button onclick="addtocart(3)">Add to cart</button></div>
+            </div></div>
+            <div class="sidebar">
+                <div class="head"><p>My Cart</p></div>
+                <div id="cartItem">Your cart is empty</div>
+                <div class="foot">
+                    <h3>Total</h3>
+                    <h2 id="total">R 0.00</h2>
+                </div>
+            </div>
+        </div>
+        <script src="addtocart.js"></script>
+    </body>
+</html>
