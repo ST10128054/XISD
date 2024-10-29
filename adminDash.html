@@ -1,11 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
     <title>Admin</title>
+    <script type="module" src="admin.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Open Sans", sans-serif;
+        }
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          width: 100%;
+          padding: 0 10px;
+        }
+        body::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: url("img/loginBG.jpg");
+          background-position: center;
+          background-size: cover;
+        }
+        .wrapper {
+          width: 800px;
+          border-radius: 8px;
+          padding: 10px;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+        h2 {
+          font-size: 2rem;
+          color: #fff;
+        }
+        .input-field {
+          position: relative;
+          border-bottom: 2px solid #ccc;
+          margin: 15px 0;
+        }
+        .input-field label {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          color: #fff;
+          font-size: 16px;
+          pointer-events: none;
+          transition: 0.15s ease;
+        }
+        .input-field input {
+          width: 100%;
+          height: 40px;
+          background: transparent;
+          border: none;
+          outline: none;
+          font-size: 16px;
+          color: #fff;
+        }
+        .input-field input:focus~label,
+        .input-field input:valid~label {
+          font-size: 0.8rem;
+          top: 10px;
+          transform: translateY(-120%);
+        }
+        .forget {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 25px 0 35px 0;
+          color: #fff;
+        }
+        #remember {
+          accent-color: #fff;
+        }
+        .forget label {
+          display: flex;
+          align-items: center;
+        }
+        .forget label p {
+          margin-left: 8px;
+        }
+        .wrapper a {
+          color: #efefef;
+          text-decoration: none;
+        }
+        .wrapper a:hover {
+          text-decoration: underline;
+        }
+        button {
+          background: #fff;
+          color: #000;
+          font-weight: 600;
+          border: none;
+          padding: 12px 20px;
+          cursor: pointer;
+          border-radius: 3px;
+          font-size: 16px;
+          border: 2px solid transparent;
+          transition: 0.3s ease;
+        }
+        button:hover {
+          color: #fff;
+          border-color: #fff;
+          background: rgba(255, 255, 255, 0.15);
+        }
+        .register {
+          text-align: center;
+          margin-top: 30px;
+          color: #fff;
+        }
+        .error {
+                    border: 1px solid red;
+                }
+
+  
+
+
+
+
+.form .input-box {
+  width: 100%;
+  margin-top: 20px;
+}
+.input-box label {
+  color: white;
+}
+.form :where(.input-box input, .select-box) {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+.input-box input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.form .column {
+  display: flex;
+  column-gap: 15px;
+}
+
+.address :where(input, .select-box) {
+  margin-top: 15px;
+}
+.select-box select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #707070;
+  font-size: 1rem;
+}
+.form button {
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgb(201, 144, 80);
+}
+.form button:hover {
+  background: rgb(128, 86, 48);
+}
+/*Responsive*/
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+  .form :where(.gender-option, .gender) {
+    row-gap: 15px;
+  }
+}
+    </style>
 </head>
-<body>
-    
-</body>
+    <body>
+        <div class="wrapper">
+            
+            <h2 style="color: #000;">Dash Board</h2>
+            <form action="#" class="form" >
+                <div class="input-box address">
+                    <input type="text" placeholder="Product ID Name" id="productID" required>
+                    <input type="text" placeholder="Product Name" id="productName" required>
+                    <input type="text" placeholder="Price" id="price" required>
+                    <input type="text" placeholder="Details" id="details" required>
+                    <input type="text" placeholder="Image URL" id="images" required>
+                </div>
+                <div id="productMessage" class="messageDiv" style="display: none;"></div>
+                <div class="button">
+                    <div class="column">
+                        
+                        <button style="background-color: #008cff;" type="submit" id="addBtn">Add</button>
+                        <button style="background-color: greenyellow;" type="submit" id="updateBtn">Update</button>
+                        <button style="background-color: red;" type="submit" id="deleteBtn">Delete</button>
+                    </div>
+                </div>
+            </form>
+            <button style="background-color: rgb(255, 0, 255);"  id="displayBtn">Display</button>
+        </div>
+
+        
+    </body>
 </html>
