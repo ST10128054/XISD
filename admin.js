@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
 import{getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import{getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
+import{getFirestore, setDoc, doc, getDoc, deleteDoc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
 //import { getStorage } from "firebase/storage";
 //import "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -71,6 +71,42 @@ add.addEventListener('click', (event)=> {
     });
 
 });
+
+const update = document.getElementById('updateBtn');
+update.addEventListener('click', (event)=> {
+    event.preventDefault();
+    const productID = document.getElementById('productID').value;
+    const productName = document.getElementById('productName').value;
+    const price = document.getElementById('price').value;
+    const details = document.getElementById('details').value;
+    const images = document.getElementById('images').value;
+    
+    const productData = {
+        productName: productName,
+        price: price,
+        details: details,
+        images: images
+    };
+    const docRef = doc(db, "products", productID);
+    setDoc(docRef, productData).then(()=>{
+        showMessage('Product updated!', 'productMessage');
+        window.location.href = '#';
+    }).catch((error)=>{
+        console.error("Error writing dcoument", error);
+    });
+
+});
+
+const del = document.getElementById('deleteBtn');
+del.addEventListener('click', (event)=> {
+    const deleteProduct = async(productID) =>{
+        const productDoc = doc(db, "test", productID);
+        await deleteDoc(productDoc);
+    }
+    
+    
+});
+
 const display = document.getElementById('displayBtn');
 display.addEventListener('click', (event)=> {
 window.location.href = 'displayProducts.html';
