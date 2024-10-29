@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        .product-list { margin-bottom: 20px; }
+        .product { cursor: pointer; padding: 10px; border: 1px solid #ccc; margin: 5px; }
+        .product-details { display: none; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="product-list">
+        <div class="product" data-id="pd1">Product 1</div>
+        <div class="product" data-id="pd2">Product 2</div>
+        <div class="product" data-id="pd3">Product 3</div>
+    </div>
+
+    <div class="product-details" id="product-details">
+        <h2 id="product-name"></h2>
+        <p id="product-description"></p>
+        <p id="product-price"></p>
+    </div>
+
+    <script src="showProductsTest.js"></script>
+</body>
+</html>
