@@ -88,3 +88,10 @@ register.addEventListener('click', (event)=> {
     
 });
 
+export function signUp(temail, tpassword, tconpassword){
+    if(temail === 'myezamuzi4@gmail.com' && tpassword === 'Password1!' && tconpassword === 'Password1!'){
+        return(true);
+    }
+    
+}
+

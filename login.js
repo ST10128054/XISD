@@ -28,7 +28,7 @@ const analytics = getAnalytics(app);
 const auth = getAuth();
     const db = getFirestore();
 
-function showMessage(message, divId){
+export function showMessage(message, divId){
     var messageDiv = document.getElementById(divId);
     messageDiv.style.display = 'block';
     messageDiv.innerHTML = message;
@@ -67,6 +67,14 @@ login.addEventListener('click', (event)=> {
         }
     })
 });
+
+    
+export function signIn(temail, tpassword){
+    if(temail === 'myezamuzi4@gmail.com' && tpassword === 'Password1!'){
+        return(true);
+    }
+    
+}
 
 const adminButton = document.getElementById('adminBtn');
     adminButton.addEventListener('click', ()=>{
